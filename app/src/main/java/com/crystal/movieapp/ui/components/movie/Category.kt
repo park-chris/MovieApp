@@ -5,11 +5,14 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.crystal.movieapp.ui.theme.MovieAppTheme
+import com.crystal.movieapp.ui.theme.Paddings
 
 @Composable
 fun CategoryRow() {
@@ -48,12 +51,18 @@ fun CategoryRow() {
 fun CategoryTitle(title: String) {
     Text(
         text = title,
-        modifier = Modifier.padding(10.dp)
+        modifier = Modifier.padding(
+            vertical = Paddings.large,
+            horizontal = Paddings.extra
+        ),
+        style = MaterialTheme.typography.titleMedium
     )
 }
 
 @Preview
 @Composable
 fun CategoryRowPreview() {
-    CategoryRow()
+    MovieAppTheme() {
+        CategoryRow()
+    }
 }
