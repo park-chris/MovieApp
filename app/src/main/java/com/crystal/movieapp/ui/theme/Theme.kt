@@ -5,12 +5,15 @@ import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
+import androidx.compose.material3.Typography
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -20,7 +23,9 @@ import com.crystal.movieapp.ui.theme.color.ColorSet
 private val LocalColors = staticCompositionLocalOf { ColorSet.Red.LightColors }
 @Composable
 fun MovieAppTheme(
-    myColors: ColorSet,
+    myColors: ColorSet = ColorSet.Red,
+    typography: Typography = Typography,
+    shapes: Shapes = Shapes,
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
@@ -47,8 +52,9 @@ fun MovieAppTheme(
 
         MaterialTheme(
             colorScheme = colorScheme.material,
-            typography = Typography,
-            content = content
+            typography = typography,
+            content = content,
+            shapes = shapes,
         )
 
     }
