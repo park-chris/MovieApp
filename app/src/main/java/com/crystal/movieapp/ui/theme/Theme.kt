@@ -11,6 +11,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Shape
@@ -19,8 +20,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import com.crystal.movieapp.ui.theme.color.ColorSet
+import com.crystal.movieapp.ui.theme.color.MyColors
 
 private val LocalColors = staticCompositionLocalOf { ColorSet.Red.LightColors }
+
 @Composable
 fun MovieAppTheme(
     myColors: ColorSet = ColorSet.Red,
@@ -60,3 +63,9 @@ fun MovieAppTheme(
     }
 
 }
+
+// 로컬에 저장된 컬러를 확장된 형태로 가지고 옴
+val MaterialTheme.colorScheme: MyColors
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalColors.current
