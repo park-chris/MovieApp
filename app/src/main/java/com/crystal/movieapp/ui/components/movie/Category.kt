@@ -55,7 +55,7 @@ fun CategoryTitle(title: String) {
             vertical = Paddings.large,
             horizontal = Paddings.extra
         ),
-        style = MaterialTheme.typography.titleMedium
+        style = MaterialTheme.typography.titleLarge
     )
 }
 
