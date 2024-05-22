@@ -1,4 +1,4 @@
-package com.crystal.movieapp.ui.components.movie.buttons
+package com.crystal.movieapp.ui.components.buttons
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement

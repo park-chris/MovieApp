@@ -1,7 +1,6 @@
-package com.crystal.movieapp.ui.components.movie.buttons
+package com.crystal.movieapp.ui.components.buttons
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,13 +14,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.crystal.movieapp.ui.theme.MovieAppTheme
 import com.crystal.movieapp.ui.theme.Paddings
-import com.crystal.movieapp.ui.theme.dialogButton
+import com.crystal.movieapp.ui.theme.underlinedButton
 
 @Composable
-fun SecondaryButton(
+fun UnderlinedTextButton(
     modifier: Modifier = Modifier,
     @StringRes id: Int? = null,
     text: String = "",
@@ -30,10 +28,6 @@ fun SecondaryButton(
     Button(
         modifier = modifier.fillMaxWidth(),
         shape = MaterialTheme.shapes.medium,
-        border = BorderStroke(
-            2.dp,
-            MaterialTheme.colorScheme.onPrimary
-        ),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.background,
             contentColor = MaterialTheme.colorScheme.secondary,
@@ -49,7 +43,7 @@ fun SecondaryButton(
         ) {
             Text(
                 text = id?.let { stringResource(id = id) } ?: text,
-                style = MaterialTheme.typography.dialogButton,
+                style = MaterialTheme.typography.underlinedButton,
                 modifier = Modifier.padding(Paddings.small)
             )
 
@@ -60,10 +54,10 @@ fun SecondaryButton(
 
 @Preview
 @Composable
-fun SecondaryButtonPreview() {
+fun UnderlinedTextButtonPreview() {
     MovieAppTheme() {
 
-        SecondaryButton(text = "SUBMIT") {
+        UnderlinedTextButton(text = "SUBMIT") {
 
         }
     }
