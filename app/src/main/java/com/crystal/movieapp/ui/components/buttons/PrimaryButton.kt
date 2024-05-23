@@ -26,6 +26,7 @@ import com.crystal.movieapp.ui.theme.Paddings
 import com.crystal.movieapp.ui.theme.dialogButton
 
 val LEADING_ICON_SIZE = 24.dp
+
 @Composable
 fun PrimaryButton(
     modifier: Modifier = Modifier,
@@ -53,9 +54,14 @@ fun PrimaryButton(
             leadingIconData?.let {
                 Icon(
                     modifier = Modifier.size(
-                        LEADING_ICON_SIZE),
+                        LEADING_ICON_SIZE
+                    ),
                     painter = painterResource(id = leadingIconData.IconDrawable),
-                    contentDescription = stringResource(id = leadingIconData.iconContentDescription) )
+                    contentDescription = leadingIconData.iconContentDescription?.let { desc ->
+                        stringResource(
+                            id = desc
+                        )
+                    })
                 Spacer(modifier = Modifier.width(Paddings.small))
             }
             Text(
