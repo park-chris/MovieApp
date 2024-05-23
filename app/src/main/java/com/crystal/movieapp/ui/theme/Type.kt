@@ -148,5 +148,6 @@ val Typography.underlinedDialogButton: TextStyle
 
 val Typography.underlinedButton: TextStyle
     @Composable get() = displayMedium.copy(
-        textDecoration = TextDecoration.Underline
+        textDecoration = TextDecoration.Underline,
+        fontSize = 18.sp
     )

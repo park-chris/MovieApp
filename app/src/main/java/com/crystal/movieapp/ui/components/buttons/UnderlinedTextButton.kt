@@ -34,6 +34,7 @@ fun UnderlinedTextButton(
             disabledContainerColor = MaterialTheme.colorScheme.background,
             disabledContentColor = MaterialTheme.colorScheme.onBackground
         ),
+        elevation = null,
         onClick = onClick
     ) {
 
