@@ -4,10 +4,15 @@
     android:id="@+id/nav_graph"
     app:startDestination="@+id/feed_fragment">
 
+
     <fragment
         android:id="@+id/feed_fragment"
         android:name="com.crystal.movieapp.features.feed.FeedFragment"
         android:label="Feed">
+        <action
+            android:id="@+id/action_feed_to_detail"
+            app:destination="@id/detail_fragment"
+            app:launchSingleTop="true" />
 
     </fragment>
 
@@ -18,7 +23,6 @@
         <argument
             android:name="movieName"
             app:argType="string" />
-
     </fragment>
 
 </navigation>
