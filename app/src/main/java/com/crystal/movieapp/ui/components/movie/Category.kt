@@ -11,37 +11,31 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.crystal.movieapp.features.common.entity.CategoryEntity
+import com.crystal.movieapp.features.feed.presentation.input.IFeedViewModelInput
 import com.crystal.movieapp.ui.theme.MovieAppTheme
 import com.crystal.movieapp.ui.theme.Paddings
 
 @Composable
-fun CategoryRow() {
+fun CategoryRow(
+    categoryEntity: CategoryEntity,
+    input: IFeedViewModelInput
+) {
     Column() {
-        CategoryTitle("Action")
+        CategoryTitle(categoryEntity.genre)
         LazyRow(
             contentPadding = PaddingValues(
                 horizontal = Paddings.large
             )
         ) {
-//            itemsIndexed
 
-            item {
-                MovieItem()
-            }
-            item {
-                MovieItem()
-            }
-            item {
-                MovieItem()
-            }
-            item {
-                MovieItem()
-            }
-            item {
-                MovieItem()
-            }
-            item {
-                MovieItem()
+            itemsIndexed( categoryEntity.movieFeedEntities) {
+                _, item ->
+                MovieItem(
+
+                    movie = item,
+                    input = input
+                )
             }
         }
     }
@@ -57,12 +51,4 @@ fun CategoryTitle(title: String) {
         ),
         style = MaterialTheme.typography.titleLarge
     )
-}
-
-@Preview
-@Composable
-fun CategoryRowPreview() {
-    MovieAppTheme() {
-        CategoryRow()
-    }
 }
